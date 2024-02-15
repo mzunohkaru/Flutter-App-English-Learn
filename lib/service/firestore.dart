@@ -17,8 +17,8 @@ class FirebaseStoreService {
 
   Future<Question> fetchData({required int qCollectionIndex, required int qDocIndex, required int qFieldIndex}) async {
     final snapshot = await FirebaseFirestore.instance
-        .collection('test_collections$qCollectionIndex')
-        .doc('test_document_map$qDocIndex')
+        .collection('englishLearn_$qCollectionIndex')
+        .doc('set_$qDocIndex')
         .get();
 
     // ドキュメントのデータをMapとして取得

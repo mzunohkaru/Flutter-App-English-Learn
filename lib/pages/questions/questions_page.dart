@@ -19,6 +19,7 @@ class QuestionsPage extends StatefulWidget {
 
 class _QuestionsPageState extends State<QuestionsPage> {
   late Future<Question> futureQuestion;
+  final firebaseStoreService = FirebaseStoreService();
 
   final tts = FlutterTts();
   String ttsText = "";
@@ -43,7 +44,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
     // });
 
     print("DEBUG: Select set page qDocIndex ${widget.qDocIndex}");
-    futureQuestion = FirebaseStoreService().fetchData(
+    futureQuestion = firebaseStoreService.fetchData(
         qCollectionIndex: widget.qCollectionIndex,
         qDocIndex: widget.qDocIndex,
         qFieldIndex: qFieldIndex);
@@ -51,7 +52,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
 
   void _updateQuestion() {
     setState(() {
-      futureQuestion = FirebaseStoreService().fetchData(
+      futureQuestion = firebaseStoreService.fetchData(
           qCollectionIndex: widget.qCollectionIndex,
           qDocIndex: widget.qDocIndex,
           qFieldIndex: qFieldIndex);
@@ -72,7 +73,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
         ],
       ),
       body: FutureBuilder<Question>(
-        future: FirebaseStoreService().fetchData(
+        future: firebaseStoreService.fetchData(
             qCollectionIndex: widget.qCollectionIndex,
             qDocIndex: widget.qDocIndex,
             qFieldIndex: qFieldIndex),
@@ -136,7 +137,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
       case 1:
         tts.setLanguage("en-US");
         await tts.speak(ttsText);
-        break;
+        return;
       case 2:
         qFieldIndex++;
         // Page Viewを前に進める
