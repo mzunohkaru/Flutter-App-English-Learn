@@ -17,25 +17,22 @@ class BodyTranslate extends StatelessWidget {
           color: Colors.transparent,
           width: double.infinity,
           height: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(textJapanese, style: basicStyle),
-                Container(
-                  width: 300,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: Text('さらに表示'),
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(textJapanese, style: basicStyle),
+              Container(
+                width: 300,
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ],
-            ),
+                child: const Center(
+                  child: Text('さらに表示'),
+                ),
+              ),
+            ],
           ),
         ),
       ),

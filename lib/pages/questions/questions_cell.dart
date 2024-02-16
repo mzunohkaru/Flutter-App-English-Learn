@@ -29,14 +29,15 @@ class _QuestionsCellState extends State<QuestionsCell> {
           imageBuilder: (context, imageProvider) => Image(image: imageProvider),
         ),
         const SizedBox(
-          height: 30,
+          height: 20,
         ),
         Text(
           widget.question.textEnglish,
+          textAlign: TextAlign.center,
           style: basicStyle,
         ),
         const SizedBox(
-          height: 30,
+          height: 10,
         ),
         const Divider(),
       ],

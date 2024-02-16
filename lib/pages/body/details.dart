@@ -23,80 +23,96 @@ class BodyDetails extends StatelessWidget {
         color: Colors.transparent,
         width: double.infinity,
         height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text(textJapanese, style: basicStyle),
-                Container(
-                  width: double.infinity,
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: Colors.yellow[200],
-                    border: const Border(
-                      top: BorderSide(
-                        color: Colors.yellow,
-                        width: 2.0,
-                      ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(textJapanese,
+                  textAlign: TextAlign.center, style: basicStyle),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: double.infinity,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Colors.yellow[200],
+                  border: const Border(
+                    top: BorderSide(
+                      color: Colors.yellow,
+                      width: 2.0,
                     ),
                   ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      wordEnglish,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const Text(
+                      "[sample]",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  word(
+                      wordTypes: getWordTypeFromString(wordType),
+                      text: wordJapanese,
+                      wordStyle: WordStyle.large),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(155, 251, 255, 172),
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 251, 255, 172),
+                    width: 1,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        wordEnglish,
-                        style: const TextStyle(
-                          fontSize: 25,
-                          color: Colors.black,
-                        ),
+                        explanation,
+                        style: const TextStyle(color: Colors.black),
                       ),
-                      const Text(
-                        "[sample]",
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      )
+                      word(
+                          wordTypes: WordTypes.noun,
+                          text: "sample",
+                          wordStyle: WordStyle.small),
+                      word(
+                          wordTypes: WordTypes.noun,
+                          text: "sample",
+                          wordStyle: WordStyle.small),
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                word(
-                    wordTypes: getWordTypeFromString(wordType),
-                    text: wordJapanese,
-                    wordStyle: WordStyle.large),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  width: double.infinity,
-                  color: Colors.yellow[50],
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          explanation,
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                        word(
-                            wordTypes: WordTypes.noun,
-                            text: "sample",
-                            wordStyle: WordStyle.small),
-                        word(
-                            wordTypes: WordTypes.noun,
-                            text: "sample",
-                            wordStyle: WordStyle.small),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
           ),
         ),
       ),
@@ -156,7 +172,7 @@ class BodyDetails extends StatelessWidget {
 
     switch (wordStyle) {
       case WordStyle.small:
-        style = TextStyle(color: Colors.black, fontSize: 16);
+        style = const TextStyle(color: Colors.black, fontSize: 16);
         break;
 
       case WordStyle.large:

@@ -5,7 +5,7 @@ const preloader =
     Center(child: CircularProgressIndicator(color: Colors.orange));
 
 /// 共通のテキストスタイル
-const basicStyle = TextStyle(fontSize: 23, fontWeight: FontWeight.w600);
+const basicStyle = TextStyle(fontSize: 23, fontWeight: FontWeight.w300);
 
 enum StateQuestion { None, Translate, Detail }
 
